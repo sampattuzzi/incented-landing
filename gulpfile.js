@@ -29,6 +29,10 @@ gulp.task('develop', function () {
   });
 });
 
+gulp.task('dist', [
+  'less'
+]);
+
 gulp.task('default', [
   'less',
   'develop',
