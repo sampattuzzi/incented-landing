@@ -1,0 +1,103 @@
+@brand-primary: #83beec;
+@brand-success: #98d361;
+@jumbotron-color: white;
+@jumbotron-bg: @brand-primary;
+@footer-bg: #333a40;
+
+@import "../components/bootstrap/less/bootstrap.less";
+
+.odd.background {
+  color: white;
+  background-color: @brand-primary;
+}
+
+// The main CTA should be green
+button {
+  &.p1, &.p2 {
+    .btn;
+  }
+
+  &.p1 {
+    .btn-success;
+  }
+
+  &.p2 {
+    .btn-primary;
+
+    .odd & {
+      @darken-factor: 10%;
+      .button-variant(
+        darken(@btn-primary-color, @darken-factor); 
+        darken(@btn-primary-bg, @darken-factor); 
+        darken(@btn-primary-border, @darken-factor));
+    }
+  }
+}
+
+// Quote color
+blockquote {
+  color: #b0b6bb;
+}
+
+// Footer
+footer {
+  background-color: @footer-bg;
+
+  // The text MUST stay gray.
+  &, & p a {
+    &, &:hover, &:active, &:focus {
+      color: gray
+    }
+  }
+}
+
+
+.hover-image(@name) {
+  background-image: url('../img/@{name}.png');
+  background-repeat: no-repeat;
+  background-position: center; 
+  
+  &:hover {
+    background-image: url('../img/@{name}-hover.png');
+  }
+}
+
+a.facebook {
+  .hover-image(facebook);
+}
+
+a.twitter {
+  .hover-image(twitter);
+}
+
+footer hr {
+  border-top-color: #3c444b;
+}
+
+
+// Modal dialogue
+input {
+  .form-control;
+}
+
+.signup-form {
+  display: none;
+
+  &.form-1 {
+    display: block;
+  }
+}
+
+.challenge-card .overlay {
+  opacity:0;
+}
+
+.challenge-card.selected .overlay {
+  background:rgba(0,0,0,0.6);
+  opacity:1;
+  
+  & .tick {
+    color: white;
+    font-size: 60px;
+  }
+}    
