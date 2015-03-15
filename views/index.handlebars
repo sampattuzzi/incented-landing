@@ -195,7 +195,7 @@
         <form data-toggle="validator">
           
           <div class="form-group">
-            <input type="text" id="name" 
+            <input type="text" id="name" name="name"
             placeholder="Name" 
             pattern="^([ A-z])*$" required
             data-error="Your name should only use alphabetic characters." >
@@ -203,10 +203,14 @@
           </div>
 
           <div class="form-group">
-            <input type="email" id="email" 
+            <input type="email" id="email" name="email"
             placeholder="Email address" 
             data-error="Please enter a valid email address." required>
             <span class="help-block with-errors"></span>
+          </div>
+
+          <div class="form-group has-error">
+            <div class="error-block help-block"></div>
           </div>
           
           <button type="submit" class="btn btn-primary">Signup</button>
@@ -220,7 +224,7 @@
           <div class="row">
 
             <div class="challenge-card-container small">
-              <div class="challenge-card small selectable">
+              <div class="challenge-card small selectable" data-select-id="wake-up-challenge">
                 <div class="overlay">
                   <div class="tick">✔</div>
                 </div>
@@ -251,7 +255,7 @@
             </div>
 
             <div class="challenge-card-container small">
-              <div class="challenge-card small selectable">
+              <div class="challenge-card small selectable" data-select-id="get-out-challenge">
                 <div class="overlay">
                   <div class="tick">✔</div>
                 </div>
@@ -281,7 +285,7 @@
             </div>
 
             <div class="challenge-card-container small">
-              <div class="challenge-card small selectable">
+              <div class="challenge-card small selectable" data-select-id="running-challenge">
                 <div class="overlay">
                   <div class="tick">✔</div>
                 </div>
@@ -311,9 +315,15 @@
             </div>
 
           </div><!-- /.row -->
-          
+
+          <select name="habits" class="selector" multiple>
+            <option value="wake-up-challenge"></option>
+            <option value="get-out-challenge"></option>
+            <option value="running-challenge"></option>
+          </select>
+
           <div>
-            <input type="text" class="tag-input" value="" data-role="tagsinput" placeholder="e.g. healthy eating, meditation...">
+            <input name="extra_habits" type="text" class="tag-input" value="" data-role="tagsinput" placeholder="e.g. healthy eating, meditation...">
           </div>
           
           <button type="submit" class="btn btn-primary">Finish</button>
