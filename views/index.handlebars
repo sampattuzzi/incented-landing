@@ -142,7 +142,7 @@
       <div class="signup-form form-1">
         <h2><strong>Incented</strong> is coming soon.</h2>
         <h3>Sign-up and be the first to get early access.</h3>
-        <form data-toggle="validator">
+        <form data-toggle="validator" class="email-signup">
           
           <div class="form-group">
             <input type="text" id="name" name="name"
@@ -173,96 +173,40 @@
         <form>
           <div class="row">
 
+            {{#each challenges}}
+            {{#with this}}
             <div class="challenge-card-container small">
-              <div class="challenge-card small selectable" data-select-id="wake-up-challenge">
+              <div class="challenge-card small selectable" data-select-id="{{id}}">
                 <div class="overlay">
                   <div class="tick">✔</div>
                 </div>
                 <div class="image-wrapper">
-                  <div class="image" style="background-image: url('img/card1.png');">
+                  <div class="image" style="background-image: url('img/{{image}}');">
                     <div class="overlay-text">
-                      <h2>Wake up</h2>
+                      <h2>{{title}}</h2>
                       <h3>Challenge</h3>
                     </div>
                   </div>
                 </div>
                 <div class="stats">
                   <div class="row">
-                    <p class="number"><img src="img/members.png"/>1,056</p>
+                    <p class="number"><img src="img/members.png"/>{{members}}</p>
                     <p class="number-label">Members</p>
                   </div>
                   <div class="row">
-                    <p class="number"><img src="img/success.png"/>91%</p>
+                    <p class="number"><img src="img/success.png"/>{{success}}</p>
                     <p class="number-label">Success</p>
                   </div>
                   <div class="row">
-                    <p class="number"><img src="img/days.png"/>7</p>
+                    <p class="number"><img src="img/days.png"/>{{days}}</p>
                     <p class="number-label">Days</p>
                   </div>
                 </div>
 
               </div>
             </div>
-
-            <div class="challenge-card-container small">
-              <div class="challenge-card small selectable" data-select-id="get-out-challenge">
-                <div class="overlay">
-                  <div class="tick">✔</div>
-                </div>
-                <div class="image-wrapper">
-                  <div class="image" style="background-image: url('img/card1.png');">
-                    <div class="overlay-text">
-                      <h2>Wake up</h2>
-                      <h3>Challenge</h3>
-                    </div>
-                  </div>
-                </div>
-                <div class="stats">
-                  <div class="row">
-                    <p class="number"><img src="img/members.png"/>1,056</p>
-                    <p class="number-label">Members</p>
-                  </div>
-                  <div class="row">
-                    <p class="number"><img src="img/success.png"/>91%</p>
-                    <p class="number-label">Success</p>
-                  </div>
-                  <div class="row">
-                    <p class="number"><img src="img/days.png"/>7</p>
-                    <p class="number-label">Days</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="challenge-card-container small">
-              <div class="challenge-card small selectable" data-select-id="running-challenge">
-                <div class="overlay">
-                  <div class="tick">✔</div>
-                </div>
-                <div class="image-wrapper">
-                  <div class="image" style="background-image: url('img/card1.png');">
-                    <div class="overlay-text">
-                      <h2>Wake up</h2>
-                      <h3>Challenge</h3>
-                    </div>
-                  </div>
-                </div>
-                <div class="stats">
-                  <div class="row">
-                    <p class="number"><img src="img/members.png"/>1,056</p>
-                    <p class="number-label">Members</p>
-                  </div>
-                  <div class="row">
-                    <p class="number"><img src="img/success.png"/>91%</p>
-                    <p class="number-label">Success</p>
-                  </div>
-                  <div class="row">
-                    <p class="number"><img src="img/days.png"/>7</p>
-                    <p class="number-label">Days</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {{/with}}
+            {{/each}}
 
           </div><!-- /.row -->
 

@@ -4,3 +4,4 @@ public/components
 *.css
 *.swp
 .env
+*.DS_Store
