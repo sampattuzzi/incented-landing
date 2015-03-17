@@ -50,16 +50,24 @@ button {
 .cta-button-container {
   & button {
     position: relative;
+    .center-block;
   }
+
   & .pointer {
     position: absolute;
     right: -120px;
     bottom: -70px;
+
+    @media (max-width: 480px) {
+      right: 0;
+      bottom: -100px;
+    }
   }
 }
 
 .jumbotron button.p1 {
-  margin: 20px 0 70px 0;
+  margin-top: 20px;
+  margin-bottom: 70px;
 }
 
 // Card layout styling
@@ -140,7 +148,12 @@ button {
 
 // Benefits
 .benefit {
-  .make-md-column(4);
+  .make-sm-column(4);
+  
+  & p {
+    max-width: 300px;
+    .center-block();
+  }
   
   & img {
     .center-block();
