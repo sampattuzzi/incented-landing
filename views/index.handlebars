@@ -29,88 +29,38 @@
     journey to mastering habits.</h3>
     
     <div class="row">
-
+      
+      {{#each challenges}}
+      {{#with this}}
       <div class="challenge-card-container">
         <div class="challenge-card">
           <div class="image-wrapper">
-            <div class="image" style="background-image: url('img/card1.png');">
+            <div class="image" style="background-image: url('img/{{image}}');">
               <div class="overlay-text">
-                <h2>Wake up</h2>
+                <h2>{{title}}</h2>
                 <h3>Challenge</h3>
               </div>
             </div>
           </div>
           <div class="stats">
             <div class="row">
-              <p class="number"><img src="img/members.png"/>1,056</p>
+              <p class="number"><img src="img/members.png"/>{{members}}</p>
               <p class="number-label">Members</p>
             </div>
             <div class="row">
-              <p class="number"><img src="img/success.png"/>91%</p>
+              <p class="number"><img src="img/success.png"/>{{success}}</p>
               <p class="number-label">Success</p>
             </div>
             <div class="row">
-              <p class="number"><img src="img/days.png"/>7</p>
+              <p class="number"><img src="img/days.png"/>{{days}}</p>
               <p class="number-label">Days</p>
             </div>
           </div>
 
         </div>
       </div>
-
-      <div class="challenge-card-container">
-        <div class="challenge-card">
-          <div class="image-wrapper">
-            <div class="image" style="background-image: url('img/card1.png');">
-              <div class="overlay-text">
-                <h2>Wake up</h2>
-                <h3>Challenge</h3>
-              </div>
-            </div>
-          </div>
-          <div class="stats">
-            <div class="row">
-              <p class="number"><img src="img/members.png"/>1,056</p>
-              <p class="number-label">Members</p>
-            </div>
-            <div class="row">
-              <p class="number"><img src="img/success.png"/>91%</p>
-              <p class="number-label">Success</p>
-            </div>
-            <div class="row">
-              <p class="number"><img src="img/days.png"/>7</p>
-              <p class="number-label">Days</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="challenge-card-container">
-        <div class="challenge-card">
-          <div class="image-wrapper">
-            <div class="image" style="background-image: url('img/card1.png');">
-              <div class="overlay-text">
-                <h2>Wake up</h2>
-                <h3>Challenge</h3>
-              </div>
-            </div>
-          </div>
-          <div class="stats">
-            <div class="row">
-              <p class="number"><img src="img/members.png"/>1,056</p>
-              <p class="number-label">Members</p>
-            </div>
-            <div class="row">
-              <p class="number"><img src="img/success.png"/>91%</p>
-              <p class="number-label">Success</p>
-            </div>
-            <div class="row">
-              <p class="number"><img src="img/days.png"/>7</p>
-              <p class="number-label">Days</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {{/with}}
+      {{/each}}
 
     </div><!-- /.row -->
     
