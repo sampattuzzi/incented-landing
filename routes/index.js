@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
       title: "Wake up",
       id: "wake-up-challenge",
       image: "card1.png",
-      members: "1,056",
+      members: "123",
       success: "91%",
       days: "7"
     },
@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
       title: "Get out more",
       id: "get-out-challenge",
       image: "card2.png",
-      members: "726",
+      members: "64",
       success: "84%",
       days: "7"
     },
@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
       title: "Run to fit",
       id: "running-challenge",
       image: "card3.png",
-      members: "502",
+      members: "82",
       success: "81%",
       days: "7"
     },
