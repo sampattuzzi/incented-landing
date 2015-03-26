@@ -71,6 +71,32 @@ $(document).ready(function() {
     });
   });
 
+
+  // GA buttons
+  $('.fst-cta').click(function() {
+    ga('send', 'event', 'button', 'click', 'first cta');
+  });
+  
+  $('.snd-cta').click(function() {
+    ga('send', 'event', 'button', 'click', 'second cta');
+  });
+
+  $('#signup-modal').on('show.bs.modal', function (e) {
+    ga('send', 'event', 'modal', 'show');
+  });
+
+  $('#signup-modal').on('hide.bs.modal', function (e) {
+    ga('send', 'event', 'modal', 'hide');
+  });
+
+  $('.facebook').click(function() {
+    ga('send', 'event', 'button', 'click', 'facebook');
+  });
+
+  $('.twitter').click(function() {
+    ga('send', 'event', 'button', 'click', 'twitter');
+  });
+
 });
 
 function toggle(selector, select_id) {
@@ -86,12 +112,16 @@ function toggle(selector, select_id) {
 }
 
 function signup(form_data, success, error) {
+  function wrapped_success() {
+    ga('send', 'event', 'form', 'submit', 'first');
+    success.apply(this, arguments);
+  }
   $.ajax({ 
            url: '/ajax/signup',
            type: 'POST',
            cache: false, 
            data: form_data.serialize(), 
-           success: success, 
+           success: wrapped_success, 
            error: function(jqXHR, textStatus, err){
                error(textStatus, err);
            }
@@ -99,12 +129,16 @@ function signup(form_data, success, error) {
 }
 
 function add_details(form_data, success, error) {
+  function wrapped_success() {
+    ga('send', 'event', 'form', 'submit', 'second');
+    success.apply(this, arguments);
+  }
   $.ajax({ 
            url: '/ajax/add_details',
            type: 'POST',
            cache: false, 
            data: form_data.serialize(), 
-           success: success, 
+           success: wrapped_success, 
            error: function(jqXHR, textStatus, err){
                error(textStatus, err);
            }
