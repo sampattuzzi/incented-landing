@@ -6,28 +6,25 @@ var router = express.Router();
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express', challenges: [
     {
-      title: "Wake up",
-      id: "wake-up-challenge",
+      title: "Cambridge",
+      id: "cambridge",
       image: "card1.png",
       members: "123",
-      success: "91%",
-      days: "7"
+      exists: true,
     },
     {
-      title: "Get out more",
-      id: "get-out-challenge",
+      title: "London",
+      id: "london",
       image: "card2.png",
       members: "64",
-      success: "84%",
-      days: "7"
+      exists: true,
     },
     {
-      title: "Run to fit",
-      id: "running-challenge",
+      title: "Your city",
+      id: "other",
       image: "card3.png",
-      members: "82",
-      success: "81%",
-      days: "7"
+      members: "0",
+      exists: false,
     },
     ]
   });

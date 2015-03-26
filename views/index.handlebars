@@ -2,60 +2,46 @@
 ================================================== -->
 <div id="jumbotron" class="jumbotron odd background" data-ride="carousel">
   <div class="container">
-    <img src="img/logo.png" class="logo"></img>
-    <h1>Build good habits effortlessly.</h1>
-    <div class="cta-image-container">
-      <div class="cta-button-container">
-        <h3>
-          A habit becomes effortless when done every day. Pledge money to never
-          slip twice and reap the rewards of a better life.
-        </h3>
-        <button id="challenge-me-button" type="button" class="p1" data-toggle="modal" data-target="#signup-modal">
-          Challenge me!
-          <img class="pointer" src="img/arrow.png">
-        </button>
-      </div>
-      <img src="img/mockups.png" class="mockups"></img>
-    </div>
-  </div>
-</div><!-- /.Jumbotron -->
 
-<!-- Featured Challenges
-================================================== -->
-<div class="even background" data-ride="carousel">
-  <div class="container">
-    <h2>Featured Challenges</h2>
-    <h3>Choose choose one of our beginner challenges and join others on the
-    journey to mastering habits.</h3>
-    
-    <div class="row">
+    <img src="img/logo.png" class="logo"></img>
+
+    <h1>A community of habit hackers.</h1>
+
+    <h3>
+      Join one of our meetups and we will help you stick to your habits <strong>effortlessly</strong>.    
+    </h3>
+
+    <div class="cards">
       
       {{#each challenges}}
       {{#with this}}
       <div class="challenge-card-container">
-        <div class="challenge-card">
+        <div class="challenge-card selected">
+
+          {{#unless exists}}
+          <div class="overlay">
+            <div class="tick">?</div>
+          </div>
+          {{/unless}}
+
           <div class="image-wrapper">
             <div class="image" style="background-image: url('img/{{image}}');">
               <div class="overlay-text">
                 <h2>{{title}}</h2>
-                <h3>Challenge</h3>
               </div>
             </div>
           </div>
+          
+          {{#if exists}}
           <div class="stats">
-            <div class="row">
-              <p class="number"><img src="img/members.png"/>{{members}}</p>
-              <p class="number-label">Members</p>
-            </div>
-            <div class="row">
-              <p class="number"><img src="img/success.png"/>{{success}}</p>
-              <p class="number-label">Success</p>
-            </div>
-            <div class="row">
-              <p class="number"><img src="img/days.png"/>{{days}}</p>
-              <p class="number-label">Days</p>
-            </div>
+            <p class="number"><img src="img/members.png"/>{{members}}</p>
+            <p class="number-label">Members</p>
           </div>
+          {{else}}
+          <div class="stats coming-soon">
+            <p>Coming soon...</p>
+          </div>
+          {{/if}}
 
         </div>
       </div>
@@ -63,37 +49,34 @@
       {{/each}}
 
     </div><!-- /.row -->
-    
-    <button class="p2" type="button" data-toggle="modal" data-target="#signup-modal">Get started now.</button>      
+
+    <section class="cta">
+      <p>Find out when the next meetup is...</p>
+      <button id="challenge-me-button" type="button" class="p1" data-toggle="modal" data-target="#signup-modal">
+        Sign up <strong>now</strong>.
+      </button>
+    </section>
 
   </div>
-</div><!-- /.Featured Challenges -->
+</div><!-- /.Jumbotron -->
 
 <!-- Benefits
 ================================================== -->
-<div class="odd background" data-ride="carousel">
+<div class="light background" data-ride="carousel">
   <div class="container">
-    <h2>How Incented works</h2>
-    <h3>Incented connects you with the habit science, so you can
-    concentrate on changing yourself, the easy way.</h3>
-    <div class="row">
+    <h2>How does it work?</h2>
+    <div class="benefit-row">
       <div class="benefit">
-        <img src="img/focus.png">
-        <h2>Focus</h2>
-        <p>Take it one tiny habit at a time towards mastering your life.
-        Simply focus on starting each day.</p>
+        <h3>Commit</h3>
+        <p>Find a support group in your area and stay accountable in-person and online.</p>
       </div>
       <div class="benefit">
-        <img src="img/accountability.png">
-        <h2>Accountability</h2>
-        <p>Make sure you are accountable by snapping a quick photo-proof of
-        your success and getting it verified.</p>
+        <h3>Learn</h3>
+        <p>We share advice and experience with each other as we go through the process together.</p>
       </div>
       <div class="benefit">
-        <img src="img/reward.png">
-        <h2>Reward</h2>
-        <p>Earn real rewards when you bet money to triple your likelihood
-        of sticking. </p>
+        <h3>Celebrate</h3>
+        <p>It's a tough journey. Track your progress and share with the group.</p>
       </div>
     </div>
   </div>
@@ -101,15 +84,11 @@
 
 <!-- Quote
 ================================================== -->
-<div class="even background" data-ride="carousel">
+<div class="dark background" data-ride="carousel">
   <div class="container">
     <blockquote> 
       <p>
-      The thought of losing money certainly works. I've never been very
-      good at mornings, but since starting the Wake Up Challenge I've
-      managed to go for a run and be ready for the day before 9am, and
-      sometimes by 8. It's been a fantastic wake-up call, I'm looking
-      forward to pushing through to making it a habit!
+I've never been very good at mornings, being ready for the day always took at least an hour! I joined for an incentive to jump out of bed when the alarm goes off. Now I actually grab breakfast straight away, instead of rationalising just going back for a 'few more minutes' of sleep. 
       </p>
       <cite>
         <div class="image" style="background-image:url('img/bryn.png')">
@@ -128,9 +107,9 @@
 ================================================== -->
 <div class="odd background" data-ride="carousel">
   <div class="container">
-    <h2>Want to build a good habit?</h2>
+    <h2>Ready to build a better you?</h2>
       <button type="button" class="p2" data-toggle="modal" data-target="#signup-modal">
-        Challenge me!
+        Sign up <strong>now</strong>.
       </button>
   </div>
 </div><!-- /.Final CTA -->
@@ -140,8 +119,8 @@
     <div class="modal-content">
       
       <div class="signup-form form-1">
-        <h2><strong>Incented</strong> is coming soon.</h2>
-        <h3>Sign-up and be the first to get early access.</h3>
+        <h2>Join an <em>Incented</em> meetup near you.</h2>
+        <h3>Sign-up to get an invite to the next meetup in your area.</h3>
         <form data-toggle="validator" class="email-signup">
           
           <div class="form-group">
@@ -168,8 +147,8 @@
       </div>
 
       <div class="signup-form form-2">
-        <h2>What habit do you want to build?</h2>
-        <h3>Register your interest in a habit.</h3>
+        <h2>Were are you based?</h2>
+        <h3>We are currently in the following locations:</h3>
         <form>
           <div class="row">
 
@@ -184,24 +163,19 @@
                   <div class="image" style="background-image: url('img/{{image}}');">
                     <div class="overlay-text">
                       <h2>{{title}}</h2>
-                      <h3>Challenge</h3>
                     </div>
                   </div>
                 </div>
+                {{#if exists}}
                 <div class="stats">
-                  <div class="row">
-                    <p class="number"><img src="img/members.png"/>{{members}}</p>
-                    <p class="number-label">Members</p>
-                  </div>
-                  <div class="row">
-                    <p class="number"><img src="img/success.png"/>{{success}}</p>
-                    <p class="number-label">Success</p>
-                  </div>
-                  <div class="row">
-                    <p class="number"><img src="img/days.png"/>{{days}}</p>
-                    <p class="number-label">Days</p>
-                  </div>
+                  <p class="number"><img src="img/members.png"/>{{members}}</p>
+                  <p class="number-label">Members</p>
                 </div>
+                {{else}}
+                <div class="stats coming-soon">
+                  <p>Register interest.</p>
+                </div>
+                {{/if}}
 
               </div>
             </div>
@@ -210,13 +184,21 @@
 
           </div><!-- /.row -->
 
-          <select name="habits" class="selector" multiple>
-            <option value="wake-up-challenge"></option>
-            <option value="get-out-challenge"></option>
-            <option value="running-challenge"></option>
+          <select name="location" class="selector" multiple>
+            {{#each challenges}}
+            {{#with this}}
+            <option value="{{id}}"></option>
+            {{/with}}
+            {{/each}}
           </select>
 
-          <div>
+          <div class="form-group other-cities">
+            <label>Where would you like us to come next?</label>
+            <input name="other_locations" type="text" class="tag-input" value="" data-role="tagsinput" placeholder="e.g. Bristol, Berlin, San Francisco...">
+          </div>
+
+          <div class="form-group">
+            <label>What habits do you want to build?</label>
             <input name="extra_habits" type="text" class="tag-input" value="" data-role="tagsinput" placeholder="e.g. healthy eating, meditation...">
           </div>
           
@@ -225,8 +207,17 @@
       </div>
 
       <div class="signup-form form-3">
-        <h2>Thank you for your interest.</h2>
+        <h2>Thank you for signing up.</h2>
+        
+        <h3>You will here from us shortly.</h3>
         <h3>Share <strong>Incent</strong> with your friends. Building habits is better together.</h3>
+        
+        <div class="share">
+          <a class="facebook active" href="https://www.facebook.com/pages/Incented/791065067643936">
+          </a>
+          <a class="twitter active" href="https://twitter.com/getIncented">
+          </a>
+        </div>
       </div>
       
     </div>

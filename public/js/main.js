@@ -29,32 +29,61 @@ $(document).ready(function() {
   link(form1, form2, signup);
   link(form2, form3, add_details);
 
-  $('.selectable').click(function() {
+  var selector = $('select.selector');
+  if (!selector) {
+    console.error("Could not find a selector.");
+  }
+  
+  var selectables = $('.selectable')
+    
+  selectables.click(function() {
     var selectable = $(this);
     var select_id = selectable.data('select-id');
     if (!select_id) {
       console.error("Must specify a select-id for a selectable.");
     }
-    var selector = $('select.selector');
-    if (!selector) {
-      console.error("Could not find a selector.");
-    }
-    if (selectable.hasClass('selected')) {
-      var vals = selector.val();
-      var i = vals.indexOf(select_id);
-      vals.splice(i, 1) //Remove index i
-      selector.val(vals);
-  
-      selectable.removeClass('selected');
-    } else {
-      var vals = selector.val() || [];
-      vals.push(select_id);
-      selector.val(vals);
-      
-      selectable.addClass('selected');
-    }
+
+    toggle(selector, select_id);
   });
+
+  selectables.each(function() {
+    var selectable = $(this);
+    var select_id = selectable.data('select-id');
+    if (!select_id) {
+      console.error("Must specify a select-id for a selectable.");
+    }
+
+    selector.change(function() {
+      var selector = $(this);
+      var vals = selector.val() || [];
+      if (vals.indexOf(select_id) === -1) {
+        selectable.removeClass('selected');
+      } else {
+        selectable.addClass('selected');
+      }
+      
+      var other_cities = $(".other-cities");
+      if (vals.indexOf("other") === -1) {
+        other_cities.hide();
+      } else {
+        other_cities.show();
+      }
+    });
+  });
+
 });
+
+function toggle(selector, select_id) {
+  var vals = selector.val() || [];
+  var i = vals.indexOf(select_id);
+  if (i === -1) {
+    vals.push(select_id);
+  } else {
+    vals.splice(i, 1);
+  }
+  selector.val(vals);
+  selector.change();
+}
 
 function signup(form_data, success, error) {
   $.ajax({ 

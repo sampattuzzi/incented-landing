@@ -11,6 +11,11 @@
   background-color: @brand-primary;
 }
 
+.dark.background {
+  color: white;
+  background: radial-gradient(circle, rgb(236, 234, 234), lightgray);
+} 
+
 // The main CTA should be green
 button {
   &.p1, &.p2 {
@@ -34,9 +39,32 @@ button {
   }
 }
 
+// Challenge cards
+.challenge-card {
+  background-color: white;
+  color: black;
+  .box-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+  
+  .dark & {
+    .box-shadow(0px 10px 30px rgba(0, 0, 0, 0.5));
+  }
+}
+
+// Benefits
+
+.background h2 {
+  .light&, .dark& {
+    color: rgb(76, 76, 76);
+  }
+}
+
+.benefit-row {
+  color: rgb(111, 111, 111);
+}
+
 // Quote color
 blockquote {
-  color: #b0b6bb;
+  color: #939393;
 }
 
 // Footer
@@ -57,7 +85,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center; 
   
-  &:hover {
+  &:hover, &.active {
     background-image: url('../img/@{name}-hover.png');
   }
 }
@@ -85,6 +113,10 @@ input {
 
   &.form-1 {
     display: block;
+  }
+
+  & .other-cities {
+    display: none;
   }
 }
 

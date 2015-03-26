@@ -51,12 +51,18 @@ router.post('/signup', function(req, res) {
 });
 
 router.post('/add_details', function(req, res) {
-  habits = req.body.habits
-  if (!habits) {
-    habits = "NONE";
+  location = req.body.location
+  if (!location) {
+    location = "NONE";
   } else {
-    habits = habits.toString()
+    location = location.toString()
   }
+
+  other_locations = req.body.other_locations
+  if (!other_locations) {
+    other_locations = "NONE";
+  }
+
   extra_habits = req.body.extra_habits
   if (!extra_habits) {
     extra_habits = "NONE";
@@ -73,7 +79,8 @@ router.post('/add_details', function(req, res) {
       email:email
     },
     merge_vars: {
-      "HABITS": habits,
+      "LOCATION": location,
+      "OTHERLOCAT": other_locations,
       "MOREHABITS" : extra_habits
     },
     "update_existing": true,
