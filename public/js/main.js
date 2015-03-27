@@ -29,49 +29,6 @@ $(document).ready(function() {
   link(form1, form2, signup);
   link(form2, form3, add_details);
 
-  var selector = $('select.selector');
-  if (!selector) {
-    console.error("Could not find a selector.");
-  }
-  
-  var selectables = $('.selectable')
-    
-  selectables.click(function() {
-    var selectable = $(this);
-    var select_id = selectable.data('select-id');
-    if (!select_id) {
-      console.error("Must specify a select-id for a selectable.");
-    }
-
-    toggle(selector, select_id);
-  });
-
-  selectables.each(function() {
-    var selectable = $(this);
-    var select_id = selectable.data('select-id');
-    if (!select_id) {
-      console.error("Must specify a select-id for a selectable.");
-    }
-
-    selector.change(function() {
-      var selector = $(this);
-      var vals = selector.val() || [];
-      if (vals.indexOf(select_id) === -1) {
-        selectable.removeClass('selected');
-      } else {
-        selectable.addClass('selected');
-      }
-      
-      var other_cities = $(".other-cities");
-      if (vals.indexOf("other") === -1) {
-        other_cities.hide();
-      } else {
-        other_cities.show();
-      }
-    });
-  });
-
-
   // GA buttons
   $('.fst-cta').click(function() {
     ga('send', 'event', 'button', 'click', 'first cta');
@@ -98,18 +55,6 @@ $(document).ready(function() {
   });
 
 });
-
-function toggle(selector, select_id) {
-  var vals = selector.val() || [];
-  var i = vals.indexOf(select_id);
-  if (i === -1) {
-    vals.push(select_id);
-  } else {
-    vals.splice(i, 1);
-  }
-  selector.val(vals);
-  selector.change();
-}
 
 function signup(form_data, success, error) {
   function wrapped_success() {
@@ -144,23 +89,3 @@ function add_details(form_data, success, error) {
            }
         });
 }
-
-var citynames = new Bloodhound({
-  name: 'animals',
-  local: [{ val: 'dog' }, { val: 'pig' }, { val: 'moose' }],
-  remote: 'http://example.com/animals?q=%QUERY',
-  datumTokenizer: function(d) {
-    return Bloodhound.tokenizers.whitespace(d.val);
-  },
-  queryTokenizer: Bloodhound.tokenizers.whitespace
-});
-citynames.initialize();
-
-$('#tag-input').tagsinput({
-  typeaheadjs: {
-    name: 'citynames',
-    displayKey: 'name',
-    valueKey: 'name',
-    source: citynames.ttAdapter()
-  }
-});

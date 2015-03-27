@@ -148,49 +148,7 @@ I've never been very good at mornings, being ready for the day always took at le
 
       <div class="signup-form form-2">
         <h2>Were are you based?</h2>
-        <h3>We are currently in the following locations:</h3>
         <form>
-          <div class="row">
-
-            {{#each challenges}}
-            {{#with this}}
-            <div class="challenge-card-container small">
-              <div class="challenge-card small selectable" data-select-id="{{id}}">
-                <div class="overlay">
-                  <div class="tick">✔</div>
-                </div>
-                <div class="image-wrapper">
-                  <div class="image" style="background-image: url('img/{{image}}');">
-                    <div class="overlay-text">
-                      <h2>{{title}}</h2>
-                    </div>
-                  </div>
-                </div>
-                {{#if exists}}
-                <div class="stats">
-                  <p class="number"><img src="img/members.png"/>{{members}}</p>
-                  <p class="number-label">Members</p>
-                </div>
-                {{else}}
-                <div class="stats coming-soon">
-                  <p>Register interest.</p>
-                </div>
-                {{/if}}
-
-              </div>
-            </div>
-            {{/with}}
-            {{/each}}
-
-          </div><!-- /.row -->
-
-          <select name="location" class="selector" multiple>
-            {{#each challenges}}
-            {{#with this}}
-            <option value="{{id}}"></option>
-            {{/with}}
-            {{/each}}
-          </select>
 
           <div class="form-group other-cities">
             <label>Where would you like us to come next?</label>
